@@ -3,159 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Melody Programming Log</title>
-    <link rel="stylesheet" href="style.css">
+    <title>HANA | Engineering Journey</title>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
-/* 全体の設定 */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Zen Maru Gothic', sans-serif; /* 丸みのあるフォント */
-    background-color: #fffafa; /* ほんのりピンクがかった白 */
-    color: #555;
-}
+    
+    <style>
+        /* --- デザイン設定 (CSS) --- */
+        :root {
+            --pastel-pink: #ffdae0;
+            --pastel-blue: #e0ffff;
+            --hana-gold: #fff9e6; /* 花の中心のような淡いゴールド */
+            --text-color: #6a5d5d;
+            --accent-pink: #ff8fa3;
+        }
 
-/* ヘッダー */
-header {
-    background-color: #ffdae0; /* パステルピンク */
-    color: #fff;
-    text-align: center;
-    padding: 40px 20px;
-    border-bottom: 5px solid #b2ebf2; /* パステルブルーのアクセント */
-}
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Zen Maru Gothic', sans-serif;
+            background: linear-gradient(135deg, #fffafa 0%, var(--pastel-blue) 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
 
-header h1 {
-    margin: 0;
-    font-size: 24px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-}
+        /* ヘッダー：HANAの華やかさを演出 */
+        header {
+            background-color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 3px dashed var(--pastel-pink);
+            position: relative;
+        }
 
-/* コンテンツ配置 */
-.container {
-    display: flex;
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 0 20px;
-    gap: 20px;
-}
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 0.2rem;
+            color: var(--accent-pink);
+            filter: drop-shadow(2px 2px 0px var(--pastel-blue));
+        }
 
-/* メイン記事エリア */
-main {
-    flex: 2;
-}
+        header p {
+            margin: 10px 0 0;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
 
-.post {
-    background: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 15px;
-    border: 2px solid #ffdae0;
-    box-shadow: 5px 5px 0px #e0ffff; /* 水色の影でマイメロっぽさを演出 */
-}
+        /* メインレイアウト */
+        .container {
+            display: flex;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            gap: 30px;
+        }
 
-.post h2 {
-    color: #ff8fa3;
-    margin-top: 5px;
-}
+        main {
+            flex: 2;
+        }
 
-.date {
-    font-size: 12px;
-    color: #aaa;
-}
+        /* 記事カード */
+        .post {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            border: 2px solid white;
+            box-shadow: 0 10px 20px rgba(255, 218, 224, 0.5);
+            transition: transform 0.3s ease;
+        }
 
-/* コード表示部分 */
-.code-block {
-    background-color: #f0f8ff;
-    padding: 10px;
-    border-radius: 8px;
-    font-family: monospace;
-    border-left: 4px solid #b2ebf2;
-    margin-top: 10px;
-}
+        .post:hover {
+            transform: translateY(-5px);
+        }
 
-/* サイドバー */
-aside {
-    flex: 1;
-}
+        .post-date {
+            font-size: 0.8rem;
+            background: var(--pastel-blue);
+            padding: 3px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
 
-aside div {
-    background: white;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 15px;
-    border: 2px solid #b2ebf2;
-}
+        .post h2 {
+            margin: 0 0 15px;
+            color: var(--accent-pink);
+            font-size: 1.5rem;
+        }
 
-.icon {
-    font-size: 40px;
-    text-align: center;
-    background: #ffe4e1;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    margin: 0 auto 10px;
-}
+        /* プログラミングコードの見た目 */
+        .code-area {
+            background: #2d3436;
+            color: #fab1a0;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 15px 0;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
 
-/* フッター */
-footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 12px;
-    color: #ffb6c1;
-}
+        /* サイドバー */
+        aside {
+            flex: 1;
+        }
 
-/* レスポンシブ（スマホ対応） */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-}
+        .widget {
+            background: white;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid var(--pastel-pink);
+        }
+
+        .profile-img {
+            width: 80px;
+            height: 80px;
+            background: var(--pastel-pink);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        /* フッター */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #ccc;
+            font-size: 0.8rem;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <header>
-        <h1>🎀 My Programming Journey 🎀</h1>
-        <p>〜プログラマになるための学習きろく〜</p>
+        <h1>🌸 HANA 🌸</h1>
+        <p>〜 未経験からWebエンジニアへの道 〜</p>
     </header>
 
     <div class="container">
         <main>
             <article class="post">
-                <span class="date">2026.01.15</span>
-                <h2>はじめてのHTML/CSS</h2>
-                <p>今日はブログのプロトタイプを作りました！パステルカラーで可愛いデザインにすると、勉強のモチベーションも上がりますね🐰🍓</p>
-                <div class="code-block">
-                    <code>console.log("Hello, My Melody World!");</code>
+                <span class="post-date">2026.01.15</span>
+                <h2>Blog Start! GitHubにHPを公開しました</h2>
+                <p>今日から「HANA」のような、華やかで確かな技術を持つエンジニアを目指して勉強を始めます。</p>
+                <div class="code-area">
+                    const goal = "Web Engineer";<br>
+                    console.log(`I will be a ${goal}!`);
                 </div>
+                <p>まずはHTMLとCSSの基礎からコツコツ頑張ります🐰🎀</p>
             </article>
 
             <article class="post">
-                <span class="date">2026.01.14</span>
-                <h2>これからの目標</h2>
-                <p>毎日1コード、コツコツと積み上げていきたいです。夢はエンジニア！</p>
+                <span class="post-date">2026.01.14</span>
+                <h2>学習ロードマップ</h2>
+                <p>1. HTML/CSSでサイト制作<br>2. JavaScriptで動きをつける<br>3. Reactに挑戦！</p>
             </article>
         </main>
 
         <aside>
-            <div class="profile">
-                <div class="icon">🐰</div>
+            <div class="widget">
+                <div class="profile-img">🌸</div>
                 <h3>Profile</h3>
-                <p>プログラマを目指して勉強中の初心者です。好きな色はピンクと水色！</p>
+                <p>エンジニアを目指すHANAファンです。パステルカラーのコードに囲まれて楽しく学習中！</p>
             </div>
-            <div class="categories">
-                <h3>Categories</h3>
-                <ul>
-                    <li>HTML / CSS</li>
-                    <li>JavaScript</li>
-                    <li>Diary</li>
+
+            <div class="widget">
+                <h3>Category</h3>
+                <ul style="list-style: none; padding: 0; text-align: left;">
+                    <li>🎀 Diary</li>
+                    <li>💻 Coding</li>
+                    <li>✨ Inspiration</li>
                 </ul>
             </div>
         </aside>
     </div>
 
     <footer>
-        <p>&copy; 2026 My Melody Programming Blog</p>
+        &copy; 2026 HANA Programming Blog. All Rights Reserved.
     </footer>
 
 </body>
